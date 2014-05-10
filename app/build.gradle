@@ -1,0 +1,45 @@
+apply plugin: 'android'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile 'com.googlecode.androidannotations:androidannotations:+'
+    compile 'org.springframework.android:spring-android-rest-template:+'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.3.0'
+    compile 'com.j256.ormlite:ormlite-core:4.+'
+    compile 'com.j256.ormlite:ormlite-android:4.+'
+
+}
+
+apt {
+    arguments {
+        androidManifestFile variant.processResources.manifestFile
+        resourcePackageName 'com.example.restexample.app'
+    }
+}
