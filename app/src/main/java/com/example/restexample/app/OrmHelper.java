@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class OrmHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DATABASE_NAME = "localtsc.db";
-    private static final int DATABASE_VERSION = 0;
+    private static final int DATABASE_VERSION = 1;
     private static OrmHelper instance;
 
     public static OrmHelper getInstance(Context ctx) {
