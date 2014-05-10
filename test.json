@@ -1,0 +1,37 @@
+{
+    "coord": {
+        "lon": 8.94,
+        "lat": 44.41
+    },
+    "sys": {
+        "message": 0.0226,
+        "country": "Italy",
+        "sunrise": 1399694522,
+        "sunset": 1399747153
+    },
+    "weather": [{
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+    }],
+    "base": "cmc stations",
+    "main": {
+        "temp": 289.718,
+        "temp_min": 289.718,
+        "temp_max": 289.718,
+        "pressure": 985.45,
+        "sea_level": 1027.04,
+        "grnd_level": 985.45,
+        "humidity": 75
+    },
+    "wind": {
+        "speed": 2.06,
+        "deg": 151.003
+    },
+    "clouds": {"all": 88},
+    "dt": 1399737661,
+    "id": 6535088,
+    "name": "Genoa",
+    "cod": 200
+}
