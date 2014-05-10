@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.rest.RestService;
 
+import java.sql.SQLException;
+
 
 @EActivity
 public class MainActivity extends Activity {
@@ -20,10 +22,17 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final OrmHelper orm = OrmHelper.getInstance(this);
         (new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... params) {
                 Response g = japi.getResponse();
+
+                try {
+                    orm.getResponseDao().createOrUpdate(g);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 return null;
             }
         }).execute();
